@@ -1,0 +1,35 @@
+{
+  "name": "IoT Startup - AWS Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" },
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
+  },
+
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "IoT Dashboard",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  "postCreateCommand": "cd technical/frontend/dashboard && npm install",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
